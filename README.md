@@ -9,9 +9,24 @@ An end-to-end PDF intelligence + RAG system that:
 - Answers questions with retrieval-grounded citations
 - Includes a live web demo with API-backed query input
 
+## GitHub Pages Demo (Static)
+
+Public static demo:
+
+- `https://xuwanshun.github.io/OCR_PDF_Agent/showcase/`
+
+What it is:
+
+- A hosted static showcase for project overview, pipeline, and evaluation visualization.
+- Great for sharing demo pages without running local servers.
+
+Important:
+
+- GitHub Pages is static only, so live FastAPI query (`/api/ask`) is not available there.
+- For live querying, run local FastAPI server (`uv run python showcase/server.py`).
+
 ## Project Explanation Outline
 
-Use this 1-minute structure when presenting:
 
 1. Problem: long PDFs are hard to search, compare, and query reliably.
 2. Solution: OCR PDF Agent converts PDFs into structured memory and supports cited QA.
