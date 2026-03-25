@@ -1,0 +1,244 @@
+{
+  "mode": "ocr_system_full",
+  "dataset_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/ORC/Document",
+  "outputs_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/ORC/outputs",
+  "db_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/ORC/chroma_db",
+  "extraction_quality": {
+    "docs": 5,
+    "pages": 879,
+    "regions_total": 191,
+    "regions_extracted": 191,
+    "region_coverage_rate": 1.0,
+    "table_total": 96,
+    "table_headers_nonempty": 23,
+    "table_rows_nonempty": 30,
+    "table_units_nonempty": 0,
+    "table_headers_rate": 0.24,
+    "table_rows_rate": 0.312,
+    "table_units_rate": 0.0,
+    "chart_total": 95,
+    "chart_axes_nonempty": 95,
+    "chart_series_nonempty": 0,
+    "chart_datapoints_nonempty": 0,
+    "chart_trend_nonempty": 0,
+    "chart_axes_rate": 1.0,
+    "chart_series_rate": 0.0,
+    "chart_datapoints_rate": 0.0,
+    "chart_trend_rate": 0.0
+  },
+  "retrieval_quality": {
+    "cases": 12,
+    "expected_type_top1_count": 7,
+    "expected_type_top1_rate": 0.583,
+    "expected_type_top6_count": 8,
+    "expected_type_top6_rate": 0.667,
+    "visual_top6_count": 8,
+    "visual_top6_rate": 0.667,
+    "results": [
+      {
+        "question": "From extracted chart data, return chart_type and trend_summary.",
+        "expected": "chart",
+        "top_types": [
+          "chart",
+          "chart",
+          "chart",
+          "chart",
+          "chart",
+          "chart"
+        ],
+        "expected_in_top1": true,
+        "expected_in_top6": true,
+        "visual_in_top6": true,
+        "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
+        "top1_page": 215
+      },
+      {
+        "question": "Identify a chart chunk and provide axes and one series name.",
+        "expected": "chart",
+        "top_types": [
+          "chart",
+          "chart",
+          "chart",
+          "chart",
+          "chart",
+          "chart"
+        ],
+        "expected_in_top1": true,
+        "expected_in_top6": true,
+        "visual_in_top6": true,
+        "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
+        "top1_page": 264
+      },
+      {
+        "question": "Find a chart extraction related to Federal Reserve inflation.",
+        "expected": "chart",
+        "top_types": [
+          "text",
+          "text",
+          "text",
+          "text",
+          "text",
+          "text"
+        ],
+        "expected_in_top1": false,
+        "expected_in_top6": false,
+        "visual_in_top6": false,
+        "top1_source": "Document/fed_monetary_policy_report_2025_02.pdf",
+        "top1_page": 80
+      },
+      {
+        "question": "Find chart extraction in the OSHA manual and summarize notes.",
+        "expected": "chart",
+        "top_types": [
+          "text",
+          "text",
+          "text",
+          "text",
+          "text",
+          "text"
+        ],
+        "expected_in_top1": false,
+        "expected_in_top6": false,
+        "visual_in_top6": false,
+        "top1_source": "Document/osha_field_operations_manual_2019.pdf",
+        "top1_page": 107
+      },
+      {
+        "question": "Find a chart chunk from the NASA handbook.",
+        "expected": "chart",
+        "top_types": [
+          "text",
+          "text",
+          "text",
+          "text",
+          "text",
+          "text"
+        ],
+        "expected_in_top1": false,
+        "expected_in_top6": false,
+        "visual_in_top6": false,
+        "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
+        "top1_page": 253
+      },
+      {
+        "question": "Return two data_points from extracted chart chunks.",
+        "expected": "chart",
+        "top_types": [
+          "chart",
+          "chart",
+          "chart",
+          "chart",
+          "chart",
+          "chart"
+        ],
+        "expected_in_top1": true,
+        "expected_in_top6": true,
+        "visual_in_top6": true,
+        "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
+        "top1_page": 7
+      },
+      {
+        "question": "From extracted table data, provide headers and one sample row.",
+        "expected": "table",
+        "top_types": [
+          "table",
+          "table",
+          "table",
+          "table",
+          "table",
+          "table"
+        ],
+        "expected_in_top1": true,
+        "expected_in_top6": true,
+        "visual_in_top6": true,
+        "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
+        "top1_page": 3
+      },
+      {
+        "question": "Find IRS extracted table headers.",
+        "expected": "table",
+        "top_types": [
+          "text",
+          "text",
+          "text",
+          "text",
+          "text",
+          "text"
+        ],
+        "expected_in_top1": false,
+        "expected_in_top6": false,
+        "visual_in_top6": false,
+        "top1_source": "Document/irs_i1040gi_2025.pdf",
+        "top1_page": 118
+      },
+      {
+        "question": "Find NASA extracted table with appendix/title headers.",
+        "expected": "table",
+        "top_types": [
+          "text",
+          "table",
+          "text",
+          "table",
+          "text",
+          "text"
+        ],
+        "expected_in_top1": false,
+        "expected_in_top6": true,
+        "visual_in_top6": true,
+        "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
+        "top1_page": 251
+      },
+      {
+        "question": "Find table extraction that includes a units field.",
+        "expected": "table",
+        "top_types": [
+          "table",
+          "table",
+          "table",
+          "table",
+          "table",
+          "table"
+        ],
+        "expected_in_top1": true,
+        "expected_in_top6": true,
+        "visual_in_top6": true,
+        "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
+        "top1_page": 137
+      },
+      {
+        "question": "Locate a table chunk and provide row count.",
+        "expected": "table",
+        "top_types": [
+          "table",
+          "table",
+          "table",
+          "table",
+          "table",
+          "text"
+        ],
+        "expected_in_top1": true,
+        "expected_in_top6": true,
+        "visual_in_top6": true,
+        "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
+        "top1_page": 3
+      },
+      {
+        "question": "Identify a table chunk source page and headers.",
+        "expected": "table",
+        "top_types": [
+          "table",
+          "table",
+          "table",
+          "table",
+          "table",
+          "table"
+        ],
+        "expected_in_top1": true,
+        "expected_in_top6": true,
+        "visual_in_top6": true,
+        "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
+        "top1_page": 3
+      }
+    ]
+  }
+}

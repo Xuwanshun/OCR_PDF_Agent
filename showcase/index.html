@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OCR PDF Agent Showcase</title>
+    <meta
+      name="description"
+      content="Interactive showcase for OCR PDF Agent: ingestion pipeline, document artifacts, and golden evaluation results."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb bg-orb-a"></div>
+    <div class="bg-orb bg-orb-b"></div>
+
+    <header class="hero section reveal">
+      <p class="eyebrow">OCR PDF Agent</p>
+      <h1>From Raw PDFs to Grounded Answers</h1>
+      <p class="hero-copy">
+        A single-agent OCR + RAG workflow that extracts text and visual regions, stores local memory in Chroma,
+        and answers questions with source-aware citations.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="../evaluation/golden_eval_vlm.md">View Evaluation Report</a>
+        <a class="btn btn-ghost" href="../README.md">Read Project README</a>
+      </div>
+      <div class="hero-metrics" id="heroMetrics"></div>
+    </header>
+
+    <main>
+      <section class="section reveal" id="flow">
+        <div class="section-head">
+          <p class="eyebrow">System Flow</p>
+          <h2>Pipeline in 5 steps</h2>
+        </div>
+        <div class="flow-grid">
+          <article class="flow-step">
+            <span>1</span>
+            <h3>Ingest</h3>
+            <p>Read PDFs from <code>Document/</code> and generate per-page images.</p>
+          </article>
+          <article class="flow-step">
+            <span>2</span>
+            <h3>Extract</h3>
+            <p>Use native PDF text, fallback OCR, and detect table/chart/figure regions.</p>
+          </article>
+          <article class="flow-step">
+            <span>3</span>
+            <h3>Structure</h3>
+            <p>Produce <code>document.json</code>, <code>document.md</code>, and metadata artifacts.</p>
+          </article>
+          <article class="flow-step">
+            <span>4</span>
+            <h3>Index</h3>
+            <p>Chunk and embed into local Chroma for retrieval.</p>
+          </article>
+          <article class="flow-step">
+            <span>5</span>
+            <h3>Answer</h3>
+            <p>Serve <code>ocr ask</code> / <code>ocr chat</code> with cited context.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="results">
+        <div class="section-head">
+          <p class="eyebrow">Evaluation Snapshot</p>
+          <h2>Golden-set performance</h2>
+        </div>
+        <div class="summary-grid" id="summaryGrid"></div>
+        <div class="bar-list" id="barList"></div>
+      </section>
+
+      <section class="section reveal" id="documents">
+        <div class="section-head">
+          <p class="eyebrow">Artifacts</p>
+          <h2>Processed document set</h2>
+        </div>
+        <div class="doc-grid" id="docGrid"></div>
+      </section>
+
+      <section class="section reveal" id="questions">
+        <div class="section-head">
+          <p class="eyebrow">Question Board</p>
+          <h2>Per-question outcomes</h2>
+        </div>
+
+        <div class="filter-row" id="filterRow">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="pass">Pass</button>
+          <button class="chip" data-filter="fail">Fail</button>
+          <button class="chip" data-filter="text">Text</button>
+          <button class="chip" data-filter="visual_table">Visual Table</button>
+          <button class="chip" data-filter="visual_chart">Visual Chart</button>
+          <button class="chip" data-filter="citation">Citation</button>
+        </div>
+
+        <div class="question-list" id="questionList"></div>
+      </section>
+
+      <section class="section reveal" id="demo">
+        <div class="section-head">
+          <p class="eyebrow">Interactive Demo</p>
+          <h2>Try sample input and inspect returned output</h2>
+        </div>
+        <div class="demo-grid">
+          <article class="demo-panel">
+            <label for="exampleSelect">Choose an example</label>
+            <select id="exampleSelect"></select>
+
+            <label for="demoInput">Input question</label>
+            <textarea id="demoInput" rows="4"></textarea>
+
+            <div class="demo-actions">
+              <button id="runDemo" class="btn btn-primary" type="button">Run Demo Query</button>
+              <button id="surpriseMe" class="btn btn-ghost" type="button">Surprise Me</button>
+            </div>
+          </article>
+
+          <article class="demo-panel output-panel">
+            <p class="output-title">Returned Answer</p>
+            <p id="demoAnswer" class="demo-answer"></p>
+            <div id="demoMeta" class="demo-meta"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="live">
+        <div class="section-head">
+          <p class="eyebrow">Live Query</p>
+          <h2>Ask your own question against local Chroma</h2>
+        </div>
+        <div class="live-grid">
+          <article class="demo-panel">
+            <label for="liveQuestion">Question</label>
+            <textarea id="liveQuestion" rows="4" placeholder="Ask about NIST, IRS, NASA, OSHA, or the Fed report..."></textarea>
+
+            <label for="liveTopK">Top K retrieval chunks</label>
+            <input id="liveTopK" type="number" min="1" max="20" value="6" />
+
+            <label for="liveDbDir">DB directory</label>
+            <input id="liveDbDir" type="text" value="chroma_db" />
+
+            <div class="demo-actions">
+              <button id="runLiveQuery" class="btn btn-primary" type="button">Run Live Query</button>
+              <button id="useSampleQuery" class="btn btn-ghost" type="button">Use Recommended Query</button>
+            </div>
+            <p class="small-note">Requires <code>OPENAI_API_KEY</code> and running via <code>showcase/server.py</code>.</p>
+          </article>
+
+          <article class="demo-panel output-panel">
+            <p class="output-title">Live Answer</p>
+            <p id="liveAnswer" class="demo-answer">No query yet.</p>
+            <div id="liveMeta" class="demo-meta"></div>
+            <div id="liveSources" class="live-sources"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="detailDialog">
+      <form method="dialog" class="dialog-shell">
+        <button class="close-btn" value="cancel" aria-label="Close">Close</button>
+        <div id="dialogBody"></div>
+      </form>
+    </dialog>
+
+    <footer class="section footer reveal">
+      <p>Data sources: <code>evaluation/golden_eval_vlm.json</code> and <code>outputs/*/metadata.json</code>.</p>
+      <p>For live querying, run: <code>uv run python showcase/server.py</code> in repo root, then open <code>http://localhost:8765/showcase/</code>.</p>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

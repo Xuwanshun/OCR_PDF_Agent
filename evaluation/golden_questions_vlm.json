@@ -1,0 +1,117 @@
+[
+  {
+    "id": "Q1",
+    "category": "text",
+    "question": "What is the purpose of the NIST AI Risk Management Framework 1.0?",
+    "expected_docs": ["nist_ai_rmf_1_0.pdf"],
+    "expected_chunk_types": ["text"],
+    "required_terms": ["risk", "trustworthy"],
+    "min_term_recall": 0.5
+  },
+  {
+    "id": "Q2",
+    "category": "text",
+    "question": "Name the four core AI RMF functions.",
+    "expected_docs": ["nist_ai_rmf_1_0.pdf"],
+    "expected_chunk_types": ["text"],
+    "required_terms": ["govern", "map", "measure", "manage"],
+    "min_term_recall": 0.5
+  },
+  {
+    "id": "Q3",
+    "category": "text",
+    "question": "In the Federal Reserve Monetary Policy Report, how did PCE inflation change according to the report summary?",
+    "expected_docs": ["fed_monetary_policy_report_2025_02.pdf"],
+    "expected_chunk_types": ["text"],
+    "required_terms": ["2.6", "2.7", "7.2"],
+    "min_term_recall": 0.34
+  },
+  {
+    "id": "Q4",
+    "category": "text",
+    "question": "From IRS 1040 instructions, when should taxpayers use the Tax Table versus the Tax Computation Worksheet?",
+    "expected_docs": ["irs_i1040gi_2025.pdf"],
+    "expected_chunk_types": ["text"],
+    "required_terms": ["100,000", "tax table", "tax computation worksheet"],
+    "min_term_recall": 0.67
+  },
+  {
+    "id": "Q5",
+    "category": "visual_table",
+    "question": "Identify one NASA extracted table and provide two table headers exactly as shown.",
+    "expected_docs": ["nasa_systems_engineering_handbook_rev2.pdf"],
+    "expected_chunk_types": ["table"],
+    "required_terms": ["header", "table"],
+    "min_term_recall": 0.5
+  },
+  {
+    "id": "Q6",
+    "category": "visual_table",
+    "question": "Provide one extracted table citation from any document and summarize what the table is about.",
+    "expected_docs": [
+      "nasa_systems_engineering_handbook_rev2.pdf",
+      "irs_i1040gi_2025.pdf",
+      "osha_field_operations_manual_2019.pdf",
+      "fed_monetary_policy_report_2025_02.pdf"
+    ],
+    "expected_chunk_types": ["table"],
+    "required_terms": ["table"],
+    "min_term_recall": 1.0
+  },
+  {
+    "id": "Q7",
+    "category": "visual_chart",
+    "question": "Return one extracted chart object and list chart_type plus notes/trend_summary if available.",
+    "expected_docs": [
+      "fed_monetary_policy_report_2025_02.pdf",
+      "nasa_systems_engineering_handbook_rev2.pdf",
+      "osha_field_operations_manual_2019.pdf"
+    ],
+    "expected_chunk_types": ["chart"],
+    "required_terms": ["chart_type"],
+    "min_term_recall": 1.0
+  },
+  {
+    "id": "Q8",
+    "category": "visual_chart",
+    "question": "Find a chart extraction and report whether series or data_points are present.",
+    "expected_docs": [
+      "fed_monetary_policy_report_2025_02.pdf",
+      "nasa_systems_engineering_handbook_rev2.pdf",
+      "osha_field_operations_manual_2019.pdf"
+    ],
+    "expected_chunk_types": ["chart"],
+    "required_terms": ["series", "data_points"],
+    "min_term_recall": 0.5
+  },
+  {
+    "id": "Q9",
+    "category": "citation",
+    "question": "Answer in one paragraph: what does this corpus mainly cover across all 5 documents?",
+    "expected_docs": [
+      "fed_monetary_policy_report_2025_02.pdf",
+      "irs_i1040gi_2025.pdf",
+      "nasa_systems_engineering_handbook_rev2.pdf",
+      "nist_ai_rmf_1_0.pdf",
+      "osha_field_operations_manual_2019.pdf"
+    ],
+    "expected_chunk_types": ["text", "table", "chart"],
+    "required_terms": ["document"],
+    "min_term_recall": 1.0
+  },
+  {
+    "id": "Q10",
+    "category": "citation",
+    "question": "Give two concrete claims and cite each claim with a source tag.",
+    "expected_docs": [
+      "fed_monetary_policy_report_2025_02.pdf",
+      "irs_i1040gi_2025.pdf",
+      "nasa_systems_engineering_handbook_rev2.pdf",
+      "nist_ai_rmf_1_0.pdf",
+      "osha_field_operations_manual_2019.pdf"
+    ],
+    "expected_chunk_types": ["text", "table", "chart"],
+    "required_terms": [],
+    "min_term_recall": 1.0
+  }
+]
