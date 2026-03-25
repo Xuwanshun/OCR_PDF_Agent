@@ -13,7 +13,7 @@ An end-to-end PDF intelligence + RAG system that:
 
 Public static demo:
 
-- `https://xuwanshun.github.io/OCR_PDF_Agent/showcase/`
+- [https://xuwanshun.github.io/OCR_PDF_Agent/showcase/](https://xuwanshun.github.io/OCR_PDF_Agent/showcase/)
 
 What it is:
 
