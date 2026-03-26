@@ -1,9 +1,9 @@
 {
   "mode": "ocr_system_golden_eval",
-  "db_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/ORC/chroma_db",
-  "questions_file": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/ORC/evaluation/golden_questions_vlm.json",
+  "db_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/OCR/chroma_db",
+  "questions_file": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/OCR/evaluation/golden_questions_vlm.json",
   "top_k": 6,
-  "use_llm_judge": true,
+  "use_llm_judge": false,
   "summary": {
     "total_questions": 10,
     "deterministic_pass_count": 9,
@@ -13,16 +13,15 @@
     "expected_type_hit_count": 10,
     "expected_type_hit_rate": 1.0,
     "mean_term_recall": 0.85,
-    "mean_citation_valid_rate": 0.55,
-    "abstain_count": 1,
-    "llm_judge_mean_overall": 0.616
+    "mean_citation_valid_rate": 0.7,
+    "abstain_count": 1
   },
   "results": [
     {
       "id": "Q1",
       "category": "text",
       "question": "What is the purpose of the NIST AI Risk Management Framework 1.0?",
-      "answer": "The purpose of the NIST AI Risk Management Framework 1.0 (AI RMF 1.0) is to provide a structured approach to minimize potential negative impacts of AI systems while maximizing their positive impacts. It aims to help organizations manage risks associated with AI systems effectively, leading to more trustworthy AI technologies. The framework includes specific functions—GOVERN, MAP, MEASURE, and MANAGE—to guide organizations in addressing AI risks throughout the AI lifecycle [source: nist_ai_rmf_1_0.pdf p8]. Additionally, it is designed to be flexible to address new risks as they emerge and to support organizations in understanding and managing the impacts of AI systems [source: nist_ai_rmf_1_0.pdf p9].",
+      "answer": "The purpose of the NIST AI Risk Management Framework 1.0 (AI RMF 1.0) is to provide a structured approach to managing risks associated with artificial intelligence systems. It aims to minimize potential negative impacts of AI systems, such as threats to civil liberties and rights, while maximizing positive impacts. The framework is designed to help organizations understand, document, and manage AI risks effectively, leading to more trustworthy AI systems [source: nist_ai_rmf_1_0.pdf p9 text id=7576edb531d9848825814ee88e28b1795d3a84b435b4b797d3670eafdc4a89f1:p9:text:0]. \n\nAdditionally, the AI RMF outlines four specific functions—GOVERN, MAP, MEASURE, and MANAGE—that organizations can apply to address AI risks throughout the AI lifecycle [source: nist_ai_rmf_1_0.pdf p8 text id=7576edb531d9848825814ee88e28b1795d3a84b435b4b797d3670eafdc4a89f1:p8:text:0].",
       "retrieved_docs": [
         "nist_ai_rmf_1_0.pdf",
         "nist_ai_rmf_1_0.pdf",
@@ -51,24 +50,19 @@
       ],
       "term_recall": 1.0,
       "citation_stats": {
-        "citations_found": 4,
+        "citations_found": 2,
         "citations_valid": 2,
-        "citation_valid_rate": 0.5
+        "citation_valid_rate": 1.0
       },
       "abstained": false,
       "deterministic_pass": true,
-      "llm_judge": {
-        "correctness": 1,
-        "citation_support": 1,
-        "overall": 1,
-        "notes": "The answer accurately describes the purpose of the NIST AI Risk Management Framework 1.0, including its structured approach to managing AI risks and the specific functions it includes. It also correctly cites the expected document and includes relevant terms."
-      }
+      "llm_judge": null
     },
     {
       "id": "Q2",
       "category": "text",
       "question": "Name the four core AI RMF functions.",
-      "answer": "The four core AI RMF functions are GOVERN, MAP, MEASURE, and MANAGE [source: nist_ai_rmf_1_0.pdf p25].",
+      "answer": "The four core AI RMF functions are GOVERN, MAP, MEASURE, and MANAGE [source: nist_ai_rmf_1_0.pdf p25 text id=7576edb531d9848825814ee88e28b1795d3a84b435b4b797d3670eafdc4a89f1:p25:text:0].",
       "retrieved_docs": [
         "nist_ai_rmf_1_0.pdf",
         "nist_ai_rmf_1_0.pdf",
@@ -101,24 +95,19 @@
       ],
       "term_recall": 1.0,
       "citation_stats": {
-        "citations_found": 2,
+        "citations_found": 1,
         "citations_valid": 1,
-        "citation_valid_rate": 0.5
+        "citation_valid_rate": 1.0
       },
       "abstained": false,
       "deterministic_pass": true,
-      "llm_judge": {
-        "correctness": 1,
-        "citation_support": 1,
-        "overall": 1,
-        "notes": "The answer correctly identifies the four core AI RMF functions and provides a valid citation from the expected document."
-      }
+      "llm_judge": null
     },
     {
       "id": "Q3",
       "category": "text",
       "question": "In the Federal Reserve Monetary Policy Report, how did PCE inflation change according to the report summary?",
-      "answer": "According to the Federal Reserve Monetary Policy Report, PCE inflation eased slightly, rising 2.6 percent over the 12 months ending in December, down from 2.7 percent the previous year and well below its peak of 7.2 percent in mid-2022. This indicates a movement closer to the Federal Open Market Committee’s longer-run objective of 2 percent, although it remains somewhat elevated [source: fed_monetary_policy_report_2025_02.pdf p15].",
+      "answer": "According to the Federal Reserve Monetary Policy Report, PCE inflation eased slightly, rising 2.6 percent over the 12 months ending in December, down from 2.7 percent the previous year and significantly below its peak of 7.2 percent in mid-2022. This indicates a moderation in inflation, although it remains somewhat elevated compared to the Federal Open Market Committee's longer-run objective of 2 percent [source: fed_monetary_policy_report_2025_02.pdf p15].",
       "retrieved_docs": [
         "fed_monetary_policy_report_2025_02.pdf",
         "fed_monetary_policy_report_2025_02.pdf",
@@ -155,18 +144,13 @@
       },
       "abstained": false,
       "deterministic_pass": true,
-      "llm_judge": {
-        "correctness": 1,
-        "citation_support": 1,
-        "overall": 1,
-        "notes": "The answer accurately reflects the changes in PCE inflation as reported, includes the required terms, and cites the expected document correctly."
-      }
+      "llm_judge": null
     },
     {
       "id": "Q4",
       "category": "text",
       "question": "From IRS 1040 instructions, when should taxpayers use the Tax Table versus the Tax Computation Worksheet?",
-      "answer": "Taxpayers should use the Tax Table if their taxable income is less than $100,000. If their taxable income is $100,000 or more, they should use the Tax Computation Worksheet to figure their tax. This guidance is specified in the IRS instructions for Form 1040 and 1040-SR, particularly in the context of line 16 and related worksheets [source: irs_i1040gi_2025.pdf p38 text id=482e9c487c608f1bbeaceef35bc3c0933e8b35443cfff447e4279d590468364a:p38:text:0].",
+      "answer": "Taxpayers should use the Tax Table if their taxable income is less than $100,000. If their taxable income is $100,000 or more, they should use the Tax Computation Worksheet to figure their tax. This guidance is specified in the instructions for line 16 of Form 1040 or 1040-SR [source: irs_i1040gi_2025.pdf p38 text id=482e9c487c608f1bbeaceef35bc3c0933e8b35443cfff447e4279d590468364a:p38:text:0].",
       "retrieved_docs": [
         "irs_i1040gi_2025.pdf",
         "irs_i1040gi_2025.pdf",
@@ -203,18 +187,13 @@
       },
       "abstained": false,
       "deterministic_pass": true,
-      "llm_judge": {
-        "correctness": 1,
-        "citation_support": 0.1106,
-        "overall": 0.5553,
-        "notes": "The answer is correct regarding the use of the Tax Table and Tax Computation Worksheet based on taxable income thresholds. However, the citation support is weak as the retrieved source does not strongly correlate with the specific guidance mentioned."
-      }
+      "llm_judge": null
     },
     {
       "id": "Q5",
       "category": "visual_table",
       "question": "Identify one NASA extracted table and provide two table headers exactly as shown.",
-      "answer": "One NASA extracted table is \"Table 2.1-1\" with the following two table headers:\n\n1. Alignment of the 17 SE Processes to AS9100\n2. Project Life Cycle Phases [source: nasa_systems_engineering_handbook_rev2.pdf p6].",
+      "answer": "One NASA extracted table is \"Table 2.1-1\" which has the following two headers:\n\n1. Alignment of the 17 SE Processes to AS9100\n2. Project Life Cycle Phases [source: nasa_systems_engineering_handbook_rev2.pdf p6].",
       "retrieved_docs": [
         "nasa_systems_engineering_handbook_rev2.pdf",
         "nasa_systems_engineering_handbook_rev2.pdf",
@@ -249,18 +228,13 @@
       },
       "abstained": false,
       "deterministic_pass": true,
-      "llm_judge": {
-        "correctness": 0,
-        "citation_support": 0,
-        "overall": 0,
-        "notes": "The answer does not provide the correct table headers as shown in the expected format. Additionally, the retrieved sources do not support the claim of the table being extracted from the document."
-      }
+      "llm_judge": null
     },
     {
       "id": "Q6",
       "category": "visual_table",
       "question": "Provide one extracted table citation from any document and summarize what the table is about.",
-      "answer": "One extracted table citation is from the NASA Systems Engineering Handbook, which presents a table titled \"Typical Information to Capture in a Decision Report\" [source: nasa_systems_engineering_handbook_rev2.pdf p181]. The table outlines the sections that should be included in a decision report, such as the executive summary, problem/issue description, decision matrix setup rationale, and final decision matrix, among others. Each section is designed to guide the documentation of the decision-making process and ensure comprehensive reporting.",
+      "answer": "One extracted table citation is from the NASA Systems Engineering Handbook, which summarizes the typical information to capture in a decision report. The table includes sections such as \"Executive Summary,\" \"Problem/Issue Description,\" \"Decision Matrix Setup Rationale,\" and others, detailing what information should be included in each section of a decision report [source: nasa_systems_engineering_handbook_rev2.pdf p181].",
       "retrieved_docs": [
         "nasa_systems_engineering_handbook_rev2.pdf",
         "nasa_systems_engineering_handbook_rev2.pdf",
@@ -275,7 +249,7 @@
         "chart",
         "text",
         "table",
-        "table"
+        "text"
       ],
       "expected_doc_hit": true,
       "expected_type_hit": true,
@@ -293,12 +267,7 @@
       },
       "abstained": false,
       "deterministic_pass": true,
-      "llm_judge": {
-        "correctness": 0.8,
-        "citation_support": 0.9,
-        "overall": 0.85,
-        "notes": "The answer correctly identifies a table from the NASA Systems Engineering Handbook and summarizes its content accurately. However, it could improve by providing a more precise citation format and ensuring the page number corresponds to the table mentioned."
-      }
+      "llm_judge": null
     },
     {
       "id": "Q7",
@@ -307,8 +276,8 @@
       "answer": "I don't know.",
       "retrieved_docs": [
         "nasa_systems_engineering_handbook_rev2.pdf",
-        "fed_monetary_policy_report_2025_02.pdf",
-        "fed_monetary_policy_report_2025_02.pdf",
+        "nasa_systems_engineering_handbook_rev2.pdf",
+        "nasa_systems_engineering_handbook_rev2.pdf",
         "nasa_systems_engineering_handbook_rev2.pdf",
         "nasa_systems_engineering_handbook_rev2.pdf",
         "nasa_systems_engineering_handbook_rev2.pdf"
@@ -335,21 +304,16 @@
       },
       "abstained": true,
       "deterministic_pass": false,
-      "llm_judge": {
-        "correctness": 0,
-        "citation_support": 0,
-        "overall": 0,
-        "notes": "The answer does not provide any extracted chart object or relevant details such as chart_type or notes/trend_summary."
-      }
+      "llm_judge": null
     },
     {
       "id": "Q8",
       "category": "visual_chart",
       "question": "Find a chart extraction and report whether series or data_points are present.",
-      "answer": "There are no series or data points present in any of the chart extractions provided. All charts listed have empty series and data points. \n\nFor example:\n- [source: fed_monetary_policy_report_2025_02.pdf p1 chart id=728293cfbfeb672979115ab969cf6ec85cd62977f643eaee397334c6a9534ebd:p1:chart:1]\n- [source: fed_monetary_policy_report_2025_02.pdf p3 chart id=728293cfbfeb672979115ab969cf6ec85cd62977f643eaee397334c6a9534ebd:p3:chart:2]\n- [source: nasa_systems_engineering_handbook_rev2.pdf p61 chart id=8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688:p61:chart:37]\n- [source: nasa_systems_engineering_handbook_rev2.pdf p61 chart id=8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688:p61:chart:43]\n- [source: nasa_systems_engineering_handbook_rev2.pdf p61 chart id=8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688:p61:chart:44]\n- [source: nasa_systems_engineering_handbook_rev2.pdf p61 chart id=8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688:p61:chart:47]",
+      "answer": "There are no series or data points present in any of the chart extractions provided. All charts listed have empty series and data points:\n\n1. [source: nasa_systems_engineering_handbook_rev2.pdf p280 chart id=8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688:p280:chart:112]\n2. [source: nasa_systems_engineering_handbook_rev2.pdf p61 chart id=8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688:p61:chart:42]\n3. [source: nasa_systems_engineering_handbook_rev2.pdf p61 chart id=8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688:p61:chart:45]\n4. [source: nasa_systems_engineering_handbook_rev2.pdf p53 chart id=8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688:p53:chart:23]\n5. [source: nasa_systems_engineering_handbook_rev2.pdf p61 chart id=8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688:p61:chart:31]\n6. [source: nasa_systems_engineering_handbook_rev2.pdf p61 chart id=8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688:p61:chart:32]",
       "retrieved_docs": [
-        "fed_monetary_policy_report_2025_02.pdf",
-        "fed_monetary_policy_report_2025_02.pdf",
+        "nasa_systems_engineering_handbook_rev2.pdf",
+        "nasa_systems_engineering_handbook_rev2.pdf",
         "nasa_systems_engineering_handbook_rev2.pdf",
         "nasa_systems_engineering_handbook_rev2.pdf",
         "nasa_systems_engineering_handbook_rev2.pdf",
@@ -380,33 +344,28 @@
       },
       "abstained": false,
       "deterministic_pass": true,
-      "llm_judge": {
-        "correctness": 0,
-        "citation_support": 0.5,
-        "overall": 0.25,
-        "notes": "The answer incorrectly states that there are no series or data points present without verifying the content of the charts. The citations provided are relevant, but the evaluation of the charts is not supported by evidence."
-      }
+      "llm_judge": null
     },
     {
       "id": "Q9",
       "category": "citation",
       "question": "Answer in one paragraph: what does this corpus mainly cover across all 5 documents?",
-      "answer": "The corpus mainly covers various operational and procedural guidelines across different fields, including OSHA's field operations and legal processes, NASA's systems engineering practices, and monetary policy developments. Specifically, it includes details on interrogatories, document production, and depositions in OSHA's context [source: osha_field_operations_manual_2019.pdf p15], as well as interface management and engineering tasks in NASA's systems engineering handbook [source: nasa_systems_engineering_handbook_rev2.pdf p148]. Additionally, it addresses domestic and international financial developments in the context of monetary policy [source: fed_monetary_policy_report_2025_02.pdf p5].",
+      "answer": "The corpus mainly covers various types of interface documentation and management tasks related to systems engineering, as indicated by the inclusion of interface requirements documents, interface control documents, interface control drawings, interface definition documents, interface control plans, and interface management tasks [source: nasa_systems_engineering_handbook_rev2.pdf p148]. Additionally, it includes features related to document management systems, such as workflow and life cycle management, user-friendly interfaces, and migration support for software upgrades [source: nasa_systems_engineering_handbook_rev2.pdf p160].",
       "retrieved_docs": [
+        "nasa_systems_engineering_handbook_rev2.pdf",
         "osha_field_operations_manual_2019.pdf",
         "nasa_systems_engineering_handbook_rev2.pdf",
         "fed_monetary_policy_report_2025_02.pdf",
         "nasa_systems_engineering_handbook_rev2.pdf",
-        "osha_field_operations_manual_2019.pdf",
-        "nasa_systems_engineering_handbook_rev2.pdf"
+        "osha_field_operations_manual_2019.pdf"
       ],
       "retrieved_types": [
-        "text",
-        "table",
-        "table",
         "table",
         "text",
-        "table"
+        "table",
+        "table",
+        "table",
+        "text"
       ],
       "expected_doc_hit": true,
       "expected_type_hit": true,
@@ -418,24 +377,19 @@
       ],
       "term_recall": 1.0,
       "citation_stats": {
-        "citations_found": 6,
-        "citations_valid": 3,
+        "citations_found": 4,
+        "citations_valid": 2,
         "citation_valid_rate": 0.5
       },
       "abstained": false,
       "deterministic_pass": true,
-      "llm_judge": {
-        "correctness": 0.6,
-        "citation_support": 0.4,
-        "overall": 0.5,
-        "notes": "The answer provides a general overview of the corpus but lacks specific references to all expected documents. It mentions OSHA and NASA but does not include IRS or NIST documents, which are part of the expected corpus. The citations provided are relevant but do not fully support the breadth of the claim made about the corpus."
-      }
+      "llm_judge": null
     },
     {
       "id": "Q10",
       "category": "citation",
       "question": "Give two concrete claims and cite each claim with a source tag.",
-      "answer": "1. Tag-related citations must be observed by CSHOs prior to the issuance of a citation for failure to initially tag the cited movable equipment. OSHA must be able to prove the employer’s initial failure to act (tag the movable equipment upon receipt of the citation) [source: osha_field_operations_manual_2019.pdf p163].\n\n2. Employers shall be advised that, whenever feasible, engineering, administrative, or work practice controls must be instituted, even if they are not sufficient to eliminate the hazard completely [source: osha_field_operations_manual_2019.pdf p66].",
+      "answer": "1. Tag-related citations must be observed by CSHOs prior to the issuance of a citation for failure to initially tag the cited movable equipment. OSHA must be able to prove the employer’s initial failure to act (tag the movable equipment upon receipt of the citation) [source: osha_field_operations_manual_2019.pdf p163 text id=faedd8a0625b4f558ec5303a9eea047edf1a3a3c0c2efde577b3e63d1d1d4d21:p163:text:0].\n\n2. Employers shall be advised that, whenever feasible, engineering, administrative, or work practice controls must be instituted, even if they are not sufficient to eliminate the hazard completely [source: osha_field_operations_manual_2019.pdf p89 text id=faedd8a0625b4f558ec5303a9eea047edf1a3a3c0c2efde577b3e63d1d1d4d21:p89:text:0].",
       "retrieved_docs": [
         "osha_field_operations_manual_2019.pdf",
         "osha_field_operations_manual_2019.pdf",
@@ -458,18 +412,13 @@
       "required_terms_matched": [],
       "term_recall": 1.0,
       "citation_stats": {
-        "citations_found": 4,
+        "citations_found": 2,
         "citations_valid": 2,
-        "citation_valid_rate": 0.5
+        "citation_valid_rate": 1.0
       },
       "abstained": false,
       "deterministic_pass": true,
-      "llm_judge": {
-        "correctness": 1,
-        "citation_support": 1,
-        "overall": 1,
-        "notes": "Both claims are accurate and properly cited from the expected source, 'osha_field_operations_manual_2019.pdf'."
-      }
+      "llm_judge": null
     }
   ]
 }

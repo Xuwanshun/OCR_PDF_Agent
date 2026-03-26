@@ -21,6 +21,11 @@ dependencies = [
 ocr = [
   "paddleocr>=2.7.0",
 ]
+agent = [
+  "langchain>=0.3.0",
+  "langchain-openai>=0.3.0",
+  "langgraph>=0.2.0",
+]
 dev = [
   "pytest>=8.0.0",
 ]

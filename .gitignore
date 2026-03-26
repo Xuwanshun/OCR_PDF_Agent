@@ -33,5 +33,11 @@ dist/
 # Local runtime artifacts (do not commit)
 outputs/
 outputs_reingest/
+outputs_vlm/
 chroma_db/
+chroma_vlm/
+.docker-cache/
+.venv_linux_amd64/
+*.sqlite
+*.sqlite3
 *.log

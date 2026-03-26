@@ -8,16 +8,16 @@
 ## Extraction Quality
 - Docs / pages: 5 / 879
 - Region extraction coverage: 191/191 (1.0)
-- Table headers populated: 23/96 (0.24)
-- Table rows populated: 30/96 (0.312)
+- Table headers populated: 44/96 (0.458)
+- Table rows populated: 49/96 (0.51)
 - Chart axes populated: 95/95 (1.0)
 - Chart series populated: 0/95 (0.0)
 - Chart trend populated: 0/95 (0.0)
 
 ## Retrieval Quality (12 visual-focused cases)
 - Expected type @ top1: 7/12 (0.583)
-- Expected type @ top6: 8/12 (0.667)
-- Any visual chunk @ top6: 8/12 (0.667)
+- Expected type @ top6: 9/12 (0.75)
+- Any visual chunk @ top6: 9/12 (0.75)
 
 ## Trust Notes
 - This report uses deterministic checks (schema-population and retrieval typing) rather than LLM-as-judge scoring.

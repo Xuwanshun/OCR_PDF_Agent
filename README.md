@@ -37,12 +37,13 @@ Important:
 ## Architecture At A Glance
 
 1. Ingest + extraction: `ocr_agent/ingest.py`
-2. OCR engines: `ocr_agent/ocr.py` (`paddle` or `vision`)
-3. Visual extraction (VLM): `ocr_agent/vlm.py`
-4. Chunking + vector store: `ocr_agent/chunking.py`, `ocr_agent/rag_store.py`
-5. QA flow: `ocr_agent/qa.py`
-6. CLI: `ocr_agent/cli.py`
-7. Live web API (FastAPI): `showcase/server.py`
+2. Orchestrated ingest graph: `ocr_agent/ingest_graph.py` (`ingest-agent` command)
+3. OCR engines: `ocr_agent/ocr.py` (`paddle` or `vision`)
+4. Visual extraction (VLM): `ocr_agent/vlm.py`
+5. Chunking + vector store: `ocr_agent/chunking.py`, `ocr_agent/rag_store.py`
+6. QA flow: `ocr_agent/qa.py`
+7. CLI: `ocr_agent/cli.py`
+8. Live web API (FastAPI): `showcase/server.py`
 
 ## Quick Start
 
@@ -78,11 +79,26 @@ Place source files under `Document/`.
 uv run ocr ingest --input-dir ./Document --out-dir ./outputs --db ./chroma_db --ocr-engine vision
 ```
 
+Full orchestration mode (LangGraph):
+
+```bash
+uv sync --extra agent
+uv run ocr ingest-agent --input-dir ./Document --out-dir ./outputs --db ./chroma_db --ocr-engine vision
+```
+
 ### 5) Ask Questions (CLI)
 
 ```bash
 uv run ocr ask "Name the four core AI RMF functions." --db ./chroma_db --top-k 6
 uv run ocr chat --db ./chroma_db --top-k 6
+```
+
+LangChain tool-using agent graph mode:
+
+```bash
+uv sync --extra agent
+uv run ocr ask-agent "Name the four core AI RMF functions." --db ./chroma_db --top-k 6
+uv run ocr chat-agent --db ./chroma_db --top-k 6
 ```
 
 ## Command Cookbook
@@ -154,12 +170,35 @@ Key outputs:
 - Default strategy: use native PDF text when available; fallback to OCR for scanned pages.
 - Default OCR engine is `paddle`.
 - If you do not install PaddleOCR extras, use `--ocr-engine vision`.
+- Agent graph mode uses LangChain/LangGraph tools: `retrieve_context`, `analyze_table`, `analyze_chart`.
+- Full ingest orchestration graph (`ingest-agent`) executes nodes in order:
+  discover PDFs -> select document -> OCR/text extraction -> region extraction -> write artifacts -> index chunks.
 
 Install PaddleOCR extras:
 
 ```bash
 uv sync --extra ocr
 ```
+
+## Paddle Ingest Via Docker (Linux/x86_64)
+
+If local Paddle runtime is unavailable on macOS/arm64, run Paddle ingest in Docker:
+
+```bash
+./scripts/run_paddle_ingest_docker.sh
+```
+
+What this script does:
+
+- Builds `docker/paddle-ingest.Dockerfile` for `linux/amd64`
+- Runs `uv sync --extra ocr` inside the container
+- Runs:
+  `uv run ocr ingest --input-dir ./Document --out-dir ./outputs --db ./chroma_db --ocr-engine paddle`
+
+Requirements:
+
+- Docker Desktop running
+- `OPENAI_API_KEY` in shell env or `.env`
 
 ## Troubleshooting
 

@@ -1,8 +1,8 @@
 {
   "mode": "ocr_system_full",
-  "dataset_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/ORC/Document",
-  "outputs_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/ORC/outputs",
-  "db_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/ORC/chroma_db",
+  "dataset_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/OCR/Document",
+  "outputs_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/OCR/outputs",
+  "db_dir": "/Users/longzhuang/Documents/Documents - Long’s MacBook Air - 1/OCR/chroma_db",
   "extraction_quality": {
     "docs": 5,
     "pages": 879,
@@ -10,12 +10,12 @@
     "regions_extracted": 191,
     "region_coverage_rate": 1.0,
     "table_total": 96,
-    "table_headers_nonempty": 23,
-    "table_rows_nonempty": 30,
-    "table_units_nonempty": 0,
-    "table_headers_rate": 0.24,
-    "table_rows_rate": 0.312,
-    "table_units_rate": 0.0,
+    "table_headers_nonempty": 44,
+    "table_rows_nonempty": 49,
+    "table_units_nonempty": 1,
+    "table_headers_rate": 0.458,
+    "table_rows_rate": 0.51,
+    "table_units_rate": 0.01,
     "chart_total": 95,
     "chart_axes_nonempty": 95,
     "chart_series_nonempty": 0,
@@ -30,10 +30,10 @@
     "cases": 12,
     "expected_type_top1_count": 7,
     "expected_type_top1_rate": 0.583,
-    "expected_type_top6_count": 8,
-    "expected_type_top6_rate": 0.667,
-    "visual_top6_count": 8,
-    "visual_top6_rate": 0.667,
+    "expected_type_top6_count": 9,
+    "expected_type_top6_rate": 0.75,
+    "visual_top6_count": 9,
+    "visual_top6_rate": 0.75,
     "results": [
       {
         "question": "From extracted chart data, return chart_type and trend_summary.",
@@ -50,7 +50,7 @@
         "expected_in_top6": true,
         "visual_in_top6": true,
         "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
-        "top1_page": 215
+        "top1_page": 280
       },
       {
         "question": "Identify a chart chunk and provide axes and one series name.",
@@ -67,7 +67,7 @@
         "expected_in_top6": true,
         "visual_in_top6": true,
         "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
-        "top1_page": 264
+        "top1_page": 280
       },
       {
         "question": "Find a chart extraction related to Federal Reserve inflation.",
@@ -95,11 +95,11 @@
           "text",
           "text",
           "text",
-          "text"
+          "chart"
         ],
         "expected_in_top1": false,
-        "expected_in_top6": false,
-        "visual_in_top6": false,
+        "expected_in_top6": true,
+        "visual_in_top6": true,
         "top1_source": "Document/osha_field_operations_manual_2019.pdf",
         "top1_page": 107
       },
@@ -135,7 +135,7 @@
         "expected_in_top6": true,
         "visual_in_top6": true,
         "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
-        "top1_page": 7
+        "top1_page": 1
       },
       {
         "question": "From extracted table data, provide headers and one sample row.",
@@ -152,7 +152,7 @@
         "expected_in_top6": true,
         "visual_in_top6": true,
         "top1_source": "Document/nasa_systems_engineering_handbook_rev2.pdf",
-        "top1_page": 3
+        "top1_page": 159
       },
       {
         "question": "Find IRS extracted table headers.",
@@ -212,8 +212,8 @@
           "table",
           "table",
           "table",
-          "table",
-          "table",
+          "text",
+          "text",
           "text"
         ],
         "expected_in_top1": true,
